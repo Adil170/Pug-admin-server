@@ -1,0 +1,113 @@
+/* admin.css */
+
+/* Reset some default styles to ensure consistent rendering across browsers */
+body, h1, h2, h3, h4, h5, h6, p, ul, li {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Set some global styles */
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Admin panel header */
+  .admin-header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  .admin-header h1 {
+    font-size: 28px;
+  }
+  
+  /* Admin panel form */
+  .admin-form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .admin-form label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .admin-form input {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .admin-form button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .admin-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Admin panel table */
+  .admin-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .admin-table th,
+  .admin-table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .admin-table th {
+    background-color: #f0f0f0;
+  }
+  
+  .admin-table td {
+    text-align: center;
+  }
+  
+  .admin-table td button {
+    background-color: #dc3545;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .admin-table td button:hover {
+    background-color: #c82333;
+  }
+  
+  .admin-table td button.edit {
+    background-color: #ffc107;
+  }
+  
+  .admin-table td button.edit:hover {
+    background-color: #e0a800;
+  }
+  
+  /* Additional styles can be added based on your specific admin panel design */
+  
