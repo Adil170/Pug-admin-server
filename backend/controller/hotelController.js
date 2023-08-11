@@ -77,6 +77,25 @@ exports.getAllItems = async (req, res) => {
   }
 };
 
+// Get items for a specific hotel
+exports.getItemsForHotel = async (req, res) => {
+  try {
+    const hotelId = req.params.hotelId;
+
+    // Find the hotel by its ID and populate the 'items' field
+    const hotel = await Hotel.findById(hotelId).populate('items');
+
+    if (!hotel) {
+      return res.status(404).json({ error: 'Hotel not found' });
+    }
+
+    res.json(hotel.items);
+  } catch (err) {
+    console.error('Error getting items for hotel:', err);
+    res.status(500).json({ error: 'An error occurred while fetching items for the hotel' });
+  }
+};
+
 
 // Add an item to a hotel
 exports.addItemToHotel = async (req, res) => {
@@ -197,5 +216,33 @@ exports.deleteHotel = async (req, res) => {
   } catch (err) {
     console.error('Error deleting hotel:', err);
     res.status(500).json({ error: 'An error occurred while deleting the hotel' });
+  }
+
+};
+
+
+
+// Delete an item by its ID
+exports.deleteItem = async (req, res) => {
+  try {
+    const itemId = req.params.itemId;
+
+    // Find the hotel that contains the item
+    const hotel = await Hotel.findOne({ 'items._id': itemId });
+
+    if (!hotel) {
+      return res.status(404).json({ error: 'Hotel or item not found' });
+    }
+
+    // Filter out the item to be deleted from the items array
+    hotel.items = hotel.items.filter((item) => item._id.toString() !== itemId);
+
+    // Save the updated hotel document
+    await hotel.save();
+
+    res.status(200).json({ message: 'Item deleted successfully' });
+  } catch (err) {
+    console.error('Error deleting item:', err);
+    res.status(500).json({ error: 'An error occurred while deleting the item' });
   }
 };

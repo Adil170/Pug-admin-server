@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Select, Option } from "@material-tailwind/react";
 import axios from 'axios';
 
 const AdminPanel = () => {
@@ -70,9 +71,10 @@ const AdminPanel = () => {
   };
 
   return (
+    <div className="flex justify-center mt-9 bg-slate-200">
     <div className="mt-8 p-4 border rounded-md">
       <div>
-        <h3 className="text-lg font-semibold mb-4">Add Hotel</h3>
+        <h3 className=" flex justify-start text-3xl font-semibold mb-4">Add Hotels</h3>
         <input
           type="text"
           placeholder="Hotel Name"
@@ -98,8 +100,8 @@ const AdminPanel = () => {
       {/* Add Item Form */}
       {/* Add Item Form */}
 <div>
-  <h3 className="w-1/4 pr-2 text-gray-600">Add Item to Hotel</h3>
-  <select onChange={(e) => setHotelId(e.target.value)}>
+  <h3 className=" flex justify-start text-2xl font-semibold mb-4">Add Item to Hotel</h3>
+  <select onChange={(e) => setHotelId(e.target.value)} className='w-[30%] rounded-md border-2 m-3 h-10'>
     <option>Select a hotel</option>
     {hotels.map((hotel) => (
       <option key={hotel._id} value={hotel._id}>
@@ -164,6 +166,7 @@ const AdminPanel = () => {
           ))}
         </ul>
       </div>
+    </div>
     </div>
   );
 };

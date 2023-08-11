@@ -14,6 +14,9 @@ router.get('/hotels', hotelController.getAllHotels);
 // // // Get all items
 router.get('/items', hotelController.getAllItems);
 
+// Get items for a specific hotel
+router.get('/hotels/:hotelId/items', hotelController.getItemsForHotel);
+
 // // // Add items Using Hotel ID
 
 router.post('/add-item/:hotelId', hotelController.addItemToHotel);
@@ -27,6 +30,10 @@ router.put('/update-item/:hotelId/:itemId', hotelController.updateItem);
 
 // Delete a hotel by its ID
 router.delete('/hotels/:hotelId', hotelController.deleteHotel);
+
+// Delete a items by its ID
+router.delete('/items/:itemId', hotelController.deleteItem);
+
 
 
 module.exports = router;
